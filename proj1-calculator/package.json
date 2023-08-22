@@ -1,0 +1,20 @@
+{
+  "name": "proj1-calculator",
+  "version": "1.0.0",
+  "description": "CLI calculator",
+  "main": "calculator.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ablanca4/mentorProjects.git"
+  },
+  "author": "Aaron Blancaflor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ablanca4/mentorProjects/issues"
+  },
+  "homepage": "https://github.com/ablanca4/mentorProjects#readme"
+}
