@@ -1,52 +1,39 @@
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
-let runningTotal = 0;
-// given an equation will calculate the result
-const calculate = (equation) => {
-    const addRegex = new RegExp(/[+]/);
-    const subRegex = new RegExp(/[-]/);
-    const multRegex = new RegExp(/[*x]/);
-    const divRegex = new RegExp(/[/]/);
 
-    let numbers = [];
-    let equationResult = 0;
-    // matches on + - / x *
-    const operatorRegex = /[\+\-\x\*\/]/g;
-    const type = operatorRegex.exec(equation);
-    switch(type[0]) {
+// given an equation will calculate the result
+const calculate = (firstOperand, optation, secondOperand) => {
+
+    switch(optation) {
         
         case '+':
-            numbers = equation.split(addRegex);
-            console.log(numbers);
-        
-            equationResult = numbers.reduce((a,b) => parseInt(a)+parseInt(b));
-            console.log(equationResult);
-            break;
+            return firstOperand + secondOperand;
         case '-':
-            numbers = equation.split(subRegex);
-            equationResult = numbers.reduce((a,b) => parseInt(a)-parseInt(b));
-            break;
-        case 'x':
+            return firstOperand - secondOperand;
         case '*':
-            numbers = equation.split(multRegex);
-            equationResult = numbers.reduce((a,b) => parseInt(a)*parseInt(b));
-            break;
+            return firstOperand * secondOperand;
         case '/':
-            numbers = equation.split(divRegex);
-            equationResult = numbers.reduce((a,b) => parseInt(a)/parseInt(b));
-            break;
+            return firstOperand / secondOperand;
     }
 
     return equationResult;
 }
 
-while(true){
-    const rl = readline.createInterface(input, output);
-    const currentEquation = await rl.question("What do you want to calculate? ");
-    let result = calculate(currentEquation);
-    runningTotal += result;
-    console.log(`equation is: ${currentEquation}`);
-    console.log(`result is: ${result}`);
-    console.log(`running total: ${runningTotal}`);
+const calculatorApp = async () => {
+    let runningTotal = 0;
+    while(true){
+        const rl = readline.createInterface(input, output);
+        const firstOperand = await rl.question("Enter first operand: ");
+        const operator = await rl.question("Enter desired operation (+, -, /, *): ");
+        const secondOperand = await rl.question("Enter second operand: ")
+        const equation = firstOperand + operator + secondOperand;
+        let result = calculate(parseInt(firstOperand), operator, parseInt(secondOperand));
+        runningTotal += result;
+        console.log(`equation is: ${equation}`);
+        console.log(`result is: ${result}`);
+        console.log(`running total: ${runningTotal}`);
+    }
 }
+
+await calculatorApp();
