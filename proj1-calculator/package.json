@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ablanca4/mentorProjects/issues"
   },
-  "homepage": "https://github.com/ablanca4/mentorProjects#readme"
+  "homepage": "https://github.com/ablanca4/mentorProjects#readme",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
 }
