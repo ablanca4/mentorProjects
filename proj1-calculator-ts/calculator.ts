@@ -1,5 +1,5 @@
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import * as readline from 'readline/promises';
+import { stdin as input, stdout as output } from 'process';
 
 
 const rl = readline.createInterface(input, output);
@@ -26,6 +26,16 @@ const calculate = (equation:Equation):number => {
     }
 }
 
+const validateEquationNumbers = (equation:Equation) => {
+    const firstNum = equation.firstNum;
+    const secondNum = equation.secondNum;
+
+    console.log(isNaN(firstNum) || isNaN(secondNum));
+    if (isNaN(firstNum) || isNaN(secondNum)) {
+        throw Error("Invalid input for one of the operands, ensure that each operand is a valid number and try again.")
+    }
+}
+
 const calculatorApp = async () => {
     let runningTotal:number = 0;
     while(true){
@@ -39,6 +49,8 @@ const calculatorApp = async () => {
             secondNum: parseInt(secondOperand),
             operator: operator
         }
+
+        validateEquationNumbers(eq);
 
         const equationString:string = firstOperand + operator + secondOperand;
         const result = calculate(eq);
