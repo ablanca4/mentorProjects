@@ -7,7 +7,7 @@ function App() {
       <Header
         headerText={"WEIGHT"}
         accentText={"LIFTR"}
-        menuItems={["Home", "Contact", "About"]}
+        menuItems={["HOME", "CONTACT", "ABOUT", "LOGIN/SIGNUP"]}
       />
     </>
   );

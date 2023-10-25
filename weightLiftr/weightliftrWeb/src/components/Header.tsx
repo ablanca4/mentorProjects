@@ -18,16 +18,16 @@ function Header(props: any) {
         <div className="overlay">
           <div className="headerButtonContainer">
             <button className="menuButton" id="home">
-              HOME
+              {menuItems[0]}
             </button>
             <button className="menuButton" id="about">
-              ABOUT
+              {menuItems[1]}
             </button>
             <button className="menuButton" id="contact">
-              CONTACT
+              {menuItems[2]}
             </button>
             <button className="menuButton" id="login">
-              LOGIN/SIGNUP
+              {menuItems[3]}
             </button>
           </div>
         </div>
