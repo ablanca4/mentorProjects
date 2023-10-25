@@ -21,6 +21,8 @@
     #d8d8d8 17%,
     transparent 18%
   );
+  justify-content: flex-end;
+  display: flex;
 }
 
 .headerText {
@@ -44,4 +46,26 @@
   align-items: flex-end;
   position: absolute;
   height: 270px;
+}
+
+.menuButton {
+  display: flex;
+  font-size: 24px;
+  font-family: "Saira Condensed";
+  font-weight: bolder;
+  background-color: transparent;
+  height: 44px;
+  align-items: center;
+}
+
+#login {
+  background-color: #f8370c;
+}
+
+.headerButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 10px;
 }

@@ -8,11 +8,6 @@ function Header(props: any) {
   return (
     <>
       <div className="bannerContainer">
-      <div className="headerButtonContainer">
-        <button id="button1">Button 1</button>
-        <button id="button2">Button 2</button>
-        <button id="button3">Button 3</button>
-      </div>
         <div className="headerTextContainer">
           <span className="headerText">{headerText}</span>
           <span className="accentText">{accentHeaderText}</span>
@@ -20,7 +15,22 @@ function Header(props: any) {
         <div className="imageContainer">
           <img src={headerImage} className="bannerImage" alt="banner image" />
         </div>
-        <div className="overlay" />
+        <div className="overlay">
+          <div className="headerButtonContainer">
+            <button className="menuButton" id="home">
+              HOME
+            </button>
+            <button className="menuButton" id="about">
+              ABOUT
+            </button>
+            <button className="menuButton" id="contact">
+              CONTACT
+            </button>
+            <button className="menuButton" id="login">
+              LOGIN/SIGNUP
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
