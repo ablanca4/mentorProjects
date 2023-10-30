@@ -1,14 +1,10 @@
 import "./App.css";
-import Header from "./components/Header";
+import Homepage from "./pages/home-page/home-page";
 
 function App() {
   return (
     <>
-      <Header
-        headerText={"WEIGHT"}
-        accentText={"LIFTR"}
-        menuItems={["HOME", "CONTACT", "ABOUT", "LOGIN/SIGNUP"]}
-      />
+      <Homepage />
     </>
   );
 }

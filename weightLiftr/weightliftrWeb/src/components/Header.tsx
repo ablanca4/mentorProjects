@@ -1,10 +1,14 @@
+import { MenuItem } from "../../constants";
 import headerImage from "../assets/images/banner-home.jpeg";
+import { useLocation } from "react-router-dom";
 import "./Header.css";
 
 function Header(props: any) {
   const headerText = props.headerText;
   const accentHeaderText = props.accentText;
-  const menuItems = props.menuItems;
+  const menuItems = props.menuItems || [];
+  const location = useLocation();
+  console.log(location);
   return (
     <>
       <div className="bannerContainer">
@@ -17,18 +21,11 @@ function Header(props: any) {
         </div>
         <div className="overlay">
           <div className="headerButtonContainer">
-            <button className="menuButton" id="home">
-              {menuItems[0]}
-            </button>
-            <button className="menuButton" id="about">
-              {menuItems[1]}
-            </button>
-            <button className="menuButton" id="contact">
-              {menuItems[2]}
-            </button>
-            <button className="menuButton" id="login">
-              {menuItems[3]}
-            </button>
+            {menuItems.map((item: MenuItem) => (
+              <button className="menuButton" id={item.id}>
+                {item.title}
+              </button>
+            ))}
           </div>
         </div>
       </div>
