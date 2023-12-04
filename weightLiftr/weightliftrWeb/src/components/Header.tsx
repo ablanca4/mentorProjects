@@ -10,8 +10,16 @@ function Header(props: any) {
   const location = useLocation();
   console.log(location);
   return (
-    <>
+    <div id="headerContainerId">
+      <div className="overlay"></div>
       <div className="bannerContainer">
+        <div className="headerButtonContainer">
+          {menuItems.map((item: MenuItem) => (
+            <a className="menuButton" id={item.id} href={item.path}>
+              {item.title}
+            </a>
+          ))}
+        </div>
         <div className="headerTextContainer">
           <span className="headerText">{headerText}</span>
           <span className="accentText">{accentHeaderText}</span>
@@ -19,17 +27,8 @@ function Header(props: any) {
         <div className="imageContainer">
           <img src={headerImage} className="bannerImage" alt="banner image" />
         </div>
-        <div className="overlay">
-          <div className="headerButtonContainer">
-            {menuItems.map((item: MenuItem) => (
-              <button className="menuButton" id={item.id}>
-                {item.title}
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
-    </>
+    </div>
   );
 }
 
